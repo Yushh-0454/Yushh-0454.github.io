@@ -25,6 +25,13 @@
     <title>a</title>
     <url>/2019/11/02/a/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Hexo-next</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
