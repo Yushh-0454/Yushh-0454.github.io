@@ -1,10 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>eightsort2</title>
+    <title>时间复杂度与空间复杂度</title>
+    <url>/2019/11/26/timeAndSpaceComplexity/</url>
+    <content><![CDATA[<p>通常，对于一个给定的算法，我们要做<strong>两项分析</strong>。<strong>第一是从数学上证明算法的正确性</strong>，这一步主要用到形式化证明的方法及相关推理模式，如循环不变式、数学归纳法等。而在证明算法是正确的基础上，<strong>第二部就是分析算法的时间复杂度</strong>。算法的时间复杂度反映了程序执行时间随输入规模增长而增长的量级，在很大程度上能很好反映出算法的优劣与否。因此，作为程序员，掌握基本的算法时间复杂度分析方法是很有必要的。</p>
+<p>算法执行时间需通过依据该算法编制的程序在计算机上运行时所消耗的时间来度量。而度量一个程序的执行时间通常有两种方法。</p>
+<h5 id="一、事后统计的方法"><a href="#一、事后统计的方法" class="headerlink" title="一、事后统计的方法"></a><font color="#BD00BD"><strong>一、事后统计的方法</strong></font></h5><p>这种方法可行，但不是一个好的方法。该方法有<strong>两个缺陷</strong>：一是要想对设计的算法的运行性能进行评测，<strong>必须先依据算法编制相应的程序并实际运行；二是所得时间的统计量依赖于计算机的硬件、软件等环境因素</strong>，有时容易掩盖算法本身的优势。</p>
+<h5 id="二、事前分析估算的方法"><a href="#二、事前分析估算的方法" class="headerlink" title="二、事前分析估算的方法"></a><font color="#BD00BD"><strong>二、事前分析估算的方法</strong></font></h5><p>因事后统计方法更多的依赖于计算机的硬件、软件等环境因素，有时容易掩盖算法本身的优劣。因此人们常常采用事前分析估算的方法。</p>
+<p>在编写程序前，依据统计方法对算法进行估算。一个用高级语言编写的程序在计算机上运行时所消耗的时间取决于下列因素：<br>(1). 算法采用的策略、方法；<br>(2). 编译产生的代码质量；<br>(3). 问题的输入规模；<br>(4). 机器执行指令的速度。</p>
+<p>一个算法是由<strong>控制结构</strong>（顺序、分支和循环3种）和<strong>原操作</strong>（指固有数据类型的操作）构成的，则算法时间取决于两者的综合效果。为了便于比较同一个问题的不同算法，通常的做法是，从算法中选取一种对于所研究的问题（或算法类型）来说是基本操作的原操作，以该基本操作的重复执行的次数作为算法的时间量度。</p>
+<h5 id="三、时间复杂度"><a href="#三、时间复杂度" class="headerlink" title="三、时间复杂度"></a><font color="#BD00BD"><strong>三、时间复杂度</strong></font></h5><p><strong>（1）时间频度</strong><br> 一个算法执行所耗费的时间，从理论上是不能算出来的，必须上机运行测试才能知道。但我们不可能也没有必要对每个算法都上机测试，只需知道哪个算法花费的时间多，哪个算法花费的时间少就可以了。并且一个算法花费的时间与算法中语句的执行次数成正比例，哪个算法中语句执行次数多，它花费时间就多。一个算法中的语句执行次数称为语句频度或时间频度。记为<strong>T(n)</strong>。</p>
+<p><strong>（2）时间复杂度</strong><br>在刚才提到的时间频度中，n称为问题的规模，当n不断变化时，时间频度T(n)也会不断变化。但有时我们想知道它变化时呈现什么规律。为此，我们引入时间复杂度概念。 一般情况下，算法中基本操作重复执行的次数是问题规模n的某个函数，用T(n)表示，若有某个辅助函数f(n),使得当n趋近于无穷大时，T(n)/f(n)的极限值为不等于零的常数，则称f(n)是T(n)的同数量级函数。记作<strong>T(n)=Ｏ(f(n))</strong>,称Ｏ(f(n)) 为算法的渐进时间复杂度，简称<strong>时间复杂度</strong>。</p>
+<p>另外，上面公式中用到的 Landau符号其实是由德国数论学家保罗·巴赫曼（Paul Bachmann）在其1892年的著作《解析数论》首先引入，由另一位德国数论学家艾德蒙·朗道（Edmund Landau）推广。Landau符号的作用在于用简单的函数来描述复杂函数行为，给出一个上或下（确）界。在计算算法复杂度时一般只用到大O符号，Landau符号体系中的小o符号、Θ符号等等比较不常用。这里的O，最初是用大写希腊字母，但现在都用大写英语字母O；小o符号也是用小写英语字母o，Θ符号则维持大写希腊字母Θ。</p>
+<p>T (n) = Ο(f (n)) 表示存在一个常数C，使得在当n趋于正无穷时总有 T (n) ≤ C * f(n)。简单来说，就是T(n)在n趋于正无穷时最大也就跟f(n)差不多大。也就是说当n趋于正无穷时T (n)的上界是C * f(n)。其虽然对f(n)没有规定，但是一般都是取尽可能简单的函数。例如，O(2n2+n +1) = O (3n2+n+3) = O (7n2 + n) = O ( n2 ) ，一般都只用O(n2)表示就可以了。注意到大O符号里隐藏着一个常数C，所以f(n)里一般不加系数。如果把T(n)当做一棵树，那么O(f(n))所表达的就是树干，只关心其中的主干，其他的细枝末节全都抛弃不管。</p>
+<p>在各种不同算法中，若算法中语句执行次数为一个常数，则时间复杂度为O(1),另外，在时间频度不相同时，时间复杂度有可能相同，如T(n)=n2+3n+4与T(n)=4n2+2n+1它们的频度不同，但时间复杂度相同，都为O(n2)。 按数量级递增排列，常见的时间复杂度有：常数阶O(1),对数阶O(log2n),线性阶O(n), 线性对数阶O(nlog2n),平方阶O(n2)，立方阶O(n3),…， k次方阶O(nk),指数阶O(2n)。随着问题规模n的不断增大，上述时间复杂度不断增大，算法的执行效率越低。</p>
+<p><img src="/2019/11/26/timeAndSpaceComplexity/Image.png" alt="Image"></p>
+<p>从图中可见，我们应该尽可能选用多项式阶O(nk)的算法，而不希望用指数阶的算法。</p>
+<p>常见的算法时间复杂度由小到大依次为：Ο(1)＜Ο(log2n)＜Ο(n)＜Ο(nlog2n)＜Ο(n2)＜Ο(n3)＜…＜Ο(2n)＜Ο(n!)</p>
+<p>一般情况下，对一个问题（或一类算法）只需选择一种基本操作来讨论算法的时间复杂度即可，有时也需要同时考虑几种基本操作，甚至可以对不同的操作赋予不同的权值，以反映执行不同操作所需的相对时间，这种做法便于综合比较解决同一问题的两种完全不同的算法。</p>
+<p><strong>（3）求解算法的时间复杂度的具体步骤是：</strong></p>
+<p>① 找出算法中的基本语句；算法中执行次数最多的那条语句就是基本语句，通常是最内层循环的循环体。</p>
+<p>② 计算基本语句的执行次数的数量级；只需计算基本语句执行次数的数量级，这就意味着只要保证基本语句执行次数的函数中的最高次幂正确即可，可以忽略所有低次幂和最高次幂的系数。这样能够简化算法分析，并且使注意力集中在最重要的一点上：增长率。</p>
+<p>③ 用大Ο记号表示算法的时间性能。将基本语句执行次数的数量级放入大Ο记号中。</p>
+<p>如果算法中包含嵌套的循环，则基本语句通常是最内层的循环体，如果算法中包含并列的循环，则将并列循环的时间复杂度相加。例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">　　 x++;</span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">　 　<span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;=n; j++)</span><br><span class="line">　　 x++;</span><br></pre></td></tr></table></figure>
+
+<p>第一个for循环的时间复杂度为Ο(n)，第二个for循环的时间复杂度为Ο(n2)，则整个算法的时间复杂度为Ο(n+n2)=Ο(n2)。</p>
+<p>Ο(1)表示基本语句的执行次数是一个常数，一般来说，只要算法中不存在循环语句，其时间复杂度就是Ο(1)。其中Ο(log2n)、Ο(n)、 Ο(nlog2n)、Ο(n2)和Ο(n3)称为多项式时间，而Ο(2n)和Ο(n!)称为指数时间。计算机科学家普遍认为前者（即多项式时间复杂度的算法）是有效算法，把这类问题称为P（Polynomial,多项式）类问题，而把后者（即指数时间复杂度的算法）称为NP（Non-Deterministic Polynomial, 非确定多项式）问题。</p>
+<p> 一般来说多项式级的复杂度是可以接受的，很多问题都有多项式级的解——也就是说，这样的问题，对于一个规模是n的输入，在n^k的时间内得到结果，称为P问题。有些问题要复杂些，没有多项式时间的解，但是可以在多项式时间里验证某个猜测是不是正确。比如问4294967297是不是质数？如果要直接入手的话，那么要把小于4294967297的平方根的所有素数都拿出来，看看能不能整除。还好欧拉告诉我们，这个数等于641和6700417的乘积，不是素数，很好验证的，顺便麻烦转告费马他的猜想不成立。大数分解、Hamilton回路之类的问题，都是可以多项式时间内验证一个“解”是否正确，这类问题叫做NP问题。</p>
+<p><strong>（4）在计算算法时间复杂度时有以下几个简单的程序分析法则:</strong></p>
+<p>①.对于一些简单的输入输出语句或赋值语句,近似认为需要O(1)时间</p>
+<p>②.对于顺序结构,需要依次执行一系列语句所用的时间可采用大O下”求和法则”</p>
+<p>求和法则:是指若算法的2个部分时间复杂度分别为 T1(n)=O(f(n))和 T2(n)=O(g(n)),则 T1(n)+T2(n)=O(max(f(n), g(n)))</p>
+<p>特别地,若T1(m)=O(f(m)), T2(n)=O(g(n)),则 T1(m)+T2(n)=O(f(m) + g(n))</p>
+<p>③.对于选择结构,如if语句,它的主要时间耗费是在执行then字句或else字句所用的时间,需注意的是检验条件也需要O(1)时间</p>
+<p>④.对于循环结构,循环语句的运行时间主要体现在多次迭代中执行循环体以及检验循环条件的时间耗费,一般可用大O下”乘法法则”</p>
+<p>乘法法则: 是指若算法的2个部分时间复杂度分别为 T1(n)=O(f(n))和 T2(n)=O(g(n)),则 T1<em>T2=O(f(n)</em>g(n))</p>
+<p>⑤.对于复杂的算法,可以将它分成几个容易估算的部分,然后利用求和法则和乘法法则技术整个算法的时间复杂度</p>
+<p>另外还有以下2个运算法则:(1) 若g(n)=O(f(n)),则O(f(n))+ O(g(n))= O(f(n))；(2) O(Cf(n)) = O(f(n)),其中C是一个正常数</p>
+<p> <strong>（5）下面分别对几个常见的时间复杂度进行示例说明：</strong></p>
+<p>①、O(1)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Temp=i;</span><br><span class="line">i=j;</span><br><span class="line">j=temp;</span><br></pre></td></tr></table></figure>
+
+<p>以上三条单个语句的频度均为1，该程序段的执行时间是一个与问题规模n无关的常数。算法的时间复杂度为常数阶，记作T(n)=O(1)。注意：如果算法的执行时间不随着问题规模n的增加而增长，即使算法中有上千条语句，其执行时间也不过是一个较大的常数。此类算法的时间复杂度是O(1)。</p>
+<p>②、O(n2)</p>
+<p>2.1. 交换i和j的内容</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">sum=<span class="number">0</span>;                  （一次）</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)       （n+<span class="number">1</span>次）</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)   （n2次）</span><br><span class="line">    sum++;              （n2次）</span><br></pre></td></tr></table></figure>
+
+<p>解：<strong>因为Θ(2n2+n+1)=n2（Θ即：去低阶项，去掉常数项，去掉高阶项的常参得到），所以T(n)= =O(n2)；</strong></p>
+<p>2.2. 两层for循环</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    y=y+<span class="number">1</span>;         ①   </span><br><span class="line">    <span class="keyword">for</span> (j=<span class="number">0</span>;j&lt;=(<span class="number">2</span>*n);j++)    </span><br><span class="line">    x++;           ②      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解： 语句1的频度是n-1<br>语句2的频度是(n-1)*(2n+1)=2n2-n-1<br>f(n)=2n2-n-1+(n-1)=2n2-2；<br>又Θ(2n2-2)=n2<br>该程序的时间复杂度T(n)=O(n2)。</p>
+<p>一般情况下，对步进循环语句只需考虑循环体中语句的执行次数，忽略该语句中步长加1、终值判别、控制转移等成分，当有若干个循环语句时，算法的时间复杂度是由嵌套层数最多的循环语句中最内层语句的频度f(n)决定的。     </p>
+<p>③、O(n) </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">a=<span class="number">0</span>;</span><br><span class="line">b=<span class="number">1</span>;               ①</span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">1</span>;i&lt;=n;i++) ②</span><br><span class="line">&#123;  </span><br><span class="line">    s=a+b;　　　 　 ③</span><br><span class="line">    b=a;　　　　  　④  </span><br><span class="line">    a=s;　　　　  　⑤</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解： 语句1的频度：2,<br>          语句2的频度： n,<br>          语句3的频度： n-1,<br>          语句4的频度：n-1,<br>          语句5的频度：n-1,<br>          T(n)=2+n+3(n-1)=4n-1=O(n).<br>④、O(log2n)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">i=<span class="number">1</span>;     ①</span><br><span class="line"><span class="keyword">while</span> (i&lt;=n)</span><br><span class="line">i=i*<span class="number">2</span>; ②</span><br></pre></td></tr></table></figure>
+
+<p>解： 语句1的频度是1,<br>           设语句2的频度是f(n),   则：2^f(n)&lt;=n;f(n)&lt;=log2n<br>           取最大值f(n)=log2n,<br>          T(n)=O(log2n )</p>
+<p>⑤、O(n3) </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">&#123;  </span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;i;j++)  </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;j;k++)</span><br><span class="line">        x=x+<span class="number">2</span>;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解：当i=m, j=k的时候,内层循环的次数为k当i=m时, j 可以取 0,1,…,m-1 , 所以这里最内循环共进行了0+1+…+m-1=(m-1)m/2次所以,i从0取到n, 则循环共进行了: 0+(1-1)*1/2+…+(n-1)n/2=n(n+1)(n-1)/6所以时间复杂度为O(n3).</p>
+<p><strong>（5）常用的算法的时间复杂度和空间复杂度</strong></p>
+<p><img src="/2019/11/26/timeAndSpaceComplexity/Image1.png" alt="Image1"></p>
+<p>一个经验规则：其中c是一个常量，如果一个算法的复杂度为c 、 log2n 、n 、 n*log2n ,那么这个算法时间效率比较高 ，如果是2n ,3n ,n!，那么稍微大一些的n就会令这个算法不能动了，居于中间的几个则差强人意。</p>
+<p>算法时间复杂度分析是一个很重要的问题，任何一个程序员都应该熟练掌握其概念和基本方法，而且要善于从数学层面上探寻其本质，才能准确理解其内涵。</p>
+<h5 id="四、算法的空间复杂度"><a href="#四、算法的空间复杂度" class="headerlink" title="四、算法的空间复杂度"></a><font color="#BD00BD"><strong>四、算法的空间复杂度</strong></font></h5><p>类似于时间复杂度的讨论，一个算法的空间复杂度(Space Complexity)S(n)定义为该算法所耗费的存储空间，它也是问题规模n的函数。渐近空间复杂度也常常简称为空间复杂度。</p>
+<p>空间复杂度(Space Complexity)是对一个算法在运行过程中临时占用存储空间大小的量度。一个算法在计算机存储器上所占用的存储空间，包括存储算法本身所占用的存储空间，算法的输入输出数据所占用的存储空间和算法在运行过程中临时占用的存储空间这三个方面。算法的输入输出数据所占用的存储空间是由要解决的问题决定的，是通过参数表由调用函数传递而来的，它不随本算法的不同而改变。存储算法本身所占用的存储空间与算法书写的长短成正比，要压缩这方面的存储空间，就必须编写出较短的算法。算法在运行过程中临时占用的存储空间随算法的不同而异，有的算法只需要占用少量的临时工作单元，而且不随问题规模的大小而改变，我们称这种算法是“就地&quot;进行的，是节省存储的算法，如这一节介绍过的几个算法都是如此；有的算法需要占用的临时工作单元数与解决问题的规模n有关，它随着n的增大而增大，当n较大时，将占用较多的存储单元，例如将在第九章介绍的快速排序和归并排序算法就属于这种情况。</p>
+<p>如当一个算法的空间复杂度为一个常量，即不随被处理数据量n的大小而改变时，可表示为O(1)；当一个算法的空间复杂度与以2为底的n的对数成正比时，可表示为0(10g2n)；当一个算法的空I司复杂度与n成线性比例关系时，可表示为0(n).若形参为数组，则只需要为它分配一个存储由实参传送来的一个地址指针的空间，即一个机器字长空间；若形参为引用方式，则也只需要为其分配存储一个地址的空间，用它来存储对应实参变量的地址，以便由系统自动引用实参变量。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>八大排序算法的实现代码</title>
     <url>/2019/11/25/eightsort2/</url>
-    <content><![CDATA[<p>#####<font color="#BD00BD">  <strong>冒泡排序</strong>   </font></p>
-<p><img src="/2019/11/25/eightsort2/eightsort2%5C%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.gif" alt="冒泡排序"></p>
+    <content><![CDATA[<h5 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="  冒泡排序   "></a><font color="#BD00BD">  <strong>冒泡排序</strong>   </font></h5><p><img src="/2019/11/25/eightsort2/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.gif" alt="冒泡排序"></p>
 <p>基本思想：冒泡排序属于比较简单的排序，以非递减为例，依次遍历数组，发现a[i]&gt;a[i+1}的情况，swap(a[i],a[i+1])，直到没有逆序的数据，完成排序。</p>
 <p>可以用两个for循环嵌套实现，外层控制遍历次数，内层用来实现交换，也可以用一个boolean类型变量来控制是否有交换发生，如果没有交换，表明已经正序，可以直接输出。</p>
 <p>复杂度分析：很明显，冒泡排序最好情况是数组已经有序的情况，此时只需要遍历一次数据，没有交换发生，结束排序，时间复杂度为O(n)，那最坏情况下的冒泡就是逆序，此时你需要遍历n-1次数据，（数据为 3  2  1，一次遍历为2 1 3 ，二次遍历 1 2 3 结束  ），此时的时间复杂度为O(n^2)，平均情况下也为O(n^2) 需要注意的是平均情况并不是与最坏情况下的时间复杂度相等，平均的时间复杂度=sum(Pi*f(n));Pi为每种情况出现的概率，计算起来有些困难，在这里直接用前辈的结果，空间复杂度：只需要一个temp临时变量来交换数据，所以O(1)。</p>
@@ -28,40 +106,34 @@
 </code></pre>
 </li>
 </ul>
-<p>#####<font color="#BD00BD">  <strong>插入排序</strong>   </font></p>
-<p><img src="/2019/11/25/eightsort2/eightsort2%5C%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.gif" alt="插入排序"></p>
+<h5 id="插入排序"><a href="#插入排序" class="headerlink" title="  插入排序   "></a><font color="#BD00BD">  <strong>插入排序</strong>   </font></h5><p><img src="/2019/11/25/eightsort2/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.gif" alt="插入排序"></p>
 <p>基本思想：从第一个数开始，认定数组的前i个数有序，依次遍历数组，把后面的数据插入到合适的位置，使数组继续保持有序，用两个for循环实现，外层i用来控制数组的数据量，内层用来找到a[i]需要插入的位置，如果temp大于a[j]则把a[j]向后移动。</p>
 <p>时间复杂度：最好情况是数组有序，依次把数据放到前一个数的后面O(n)，最坏情况是数组逆序，遍历n次数组，每次都需要把n个数据向后移动O(n)，平均情况O(n)。</p>
 <p>空间复杂度：需要一个临时变量temp来存储即将插入的数据，所以O(1)。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; a.length; ++i) &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = a[i];</span><br><span class="line">        <span class="keyword">int</span> j;</span><br><span class="line">        <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; --j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp &lt; a[j]) &#123;</span><br><span class="line">                a[j + <span class="number">1</span>] = a[j];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        a[j + <span class="number">1</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>#####<font color="#BD00BD">  <strong>快速排序</strong>   </font></p>
-<p><img src="/2019/11/25/eightsort2/eightsort2%5C%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.gif" alt="快速排序"></p>
+<h5 id="快速排序"><a href="#快速排序" class="headerlink" title="  快速排序   "></a><font color="#BD00BD">  <strong>快速排序</strong>   </font></h5><p><img src="/2019/11/25/eightsort2/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.gif" alt="快速排序"></p>
 <p>基本思想：选择数组任一数据作为baseNum，依次从前向后 找到第一个比baseNum大的元素，然后与baseNum交换。从后向前找到第一个比baseNum小的元素，然后与baseNum交换，直到遍历一次，baseNum恰好放到正确的位置然后在分别对baseNum左和baseNum右两部分进行快速排序，外层是while循环，条件start&lt;end  为一次遍历循环体两个while，一个从左到右找到第一个比k大的元素交换，条件是（start&lt;end&amp;&amp;a[start]&lt;=base）另一个从右到左找到第一个比baseNum小的元素交换一次遍历之后把数组划分成两部分，然后一次递归；</p>
 <p>时间复杂度：在最好和平均情况下，数据从中间划分成两部分，一个大小为n的数组需要划分Log2n次，即递归log2n次，一次对n级别个数据进行操作，所以时间复杂度为O（n<em>log2n），在最坏的情况下，每次都选到数组中的最大或者最小的元素，每次划分成n-1和1两部分，这样就需要递归n-1次，一次对n级别个数据进行操作，所以最坏的时间复杂度为O(n</em>2)</p>
 <p>空间复杂度：平均需要递归log2n次，所以平均空间复杂度为O(log2n)。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (left &gt; right) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> baseNum = arr[left];</span><br><span class="line">    <span class="keyword">int</span> start = left;</span><br><span class="line">    <span class="keyword">int</span> end = right;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (start != end) &#123;</span><br><span class="line">        <span class="keyword">while</span> (arr[end] &gt;= baseNum &amp;&amp; start &lt; end) &#123;</span><br><span class="line">            end--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (arr[start] &lt;= baseNum &amp;&amp; start &lt; end) &#123;</span><br><span class="line">            start++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> temp = arr[start];</span><br><span class="line">        arr[start] = arr[end];</span><br><span class="line">        arr[end] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    arr[left] = arr[start];</span><br><span class="line">    arr[start] = baseNum;</span><br><span class="line"></span><br><span class="line">    quickSort(arr, left, start - <span class="number">1</span>);</span><br><span class="line">    quickSort(arr, end + <span class="number">1</span>, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>#####<font color="#BD00BD">  <strong>归并排序</strong>   </font></p>
-<p><img src="/2019/11/25/eightsort2/eightsort2%5C%E5%B9%B6%E5%BD%92%E6%8E%92%E5%BA%8F.gif" alt="并归排序"></p>
+<h5 id="归并排序"><a href="#归并排序" class="headerlink" title="  归并排序   "></a><font color="#BD00BD">  <strong>归并排序</strong>   </font></h5><p><img src="/2019/11/25/eightsort2/%E5%B9%B6%E5%BD%92%E6%8E%92%E5%BA%8F.gif" alt="并归排序"></p>
 <p>基本思想：将元素无限拆分，直到无可拆分为止，再将拆分的元素两两按序合并</p>
 <p>时间复杂度：时间复杂度是O(N)，而二叉树的深度是log2N，所以总的时间复杂度是O(N*lgN)</p>
 <p>空间复杂度：归并的空间复杂度就是那个临时的数组和递归时压入栈的数据占用的空间：n + logn；所以空间复杂度为: O(n)</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[array.length];</span><br><span class="line">    sort(array, temp, <span class="number">0</span>, array.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Title</span>: sort</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Description</span>: 使用归并排序，对array的left~right进行排序</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>: array</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>: temp</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>: left</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>: right</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span>[] temp, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 定义待排序中间元素</span></span><br><span class="line">    <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (left &lt; mid) &#123;</span><br><span class="line">        <span class="comment">// 递归排序中间元素及左边的元素</span></span><br><span class="line">        sort(array, temp, left, mid);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (mid + <span class="number">1</span> &lt; right) &#123;</span><br><span class="line">        <span class="comment">// 递归排序中间元素右边的元素</span></span><br><span class="line">        sort(array, temp, mid + <span class="number">1</span>, right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 合并左右两边的元素</span></span><br><span class="line">    merge(array, temp, left, mid, right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Title</span>: merge</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 借助temp数组，合并mid元素左右的元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>: array</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>: temp</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>: left</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>: mid</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>: right</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span>[] temp, <span class="keyword">int</span> left, <span class="keyword">int</span> mid, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 用于遍历左边元素</span></span><br><span class="line">    <span class="keyword">int</span> i = left;</span><br><span class="line">    <span class="comment">// 用于遍历右边元素</span></span><br><span class="line">    <span class="keyword">int</span> j = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 临时变量</span></span><br><span class="line">    <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= right) &#123;</span><br><span class="line">        <span class="comment">// 将左右两边最小的元素添加到temp数组中</span></span><br><span class="line">        <span class="keyword">if</span> (array[i] &lt;= array[j]) &#123;</span><br><span class="line">            temp[t++] = array[i++];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            temp[t++] = array[j++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid) &#123;</span><br><span class="line">        <span class="comment">// 将左边剩余元素添加到temp数组中</span></span><br><span class="line">        temp[t++] = array[i++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (j &lt;= right) &#123;</span><br><span class="line">        <span class="comment">// 将右边剩余元素添加到temp数组中</span></span><br><span class="line">        temp[t++] = array[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    t = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 将temp中的元素全部拷贝到原数组中</span></span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">        array[left++] = temp[t++];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>#####<font color="#BD00BD">  <strong>基数排序</strong>   </font></p>
-<p><img src="/2019/11/25/eightsort2/eightsort2%5C%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F.gif" alt="基数排序"></p>
+<h5 id="基数排序"><a href="#基数排序" class="headerlink" title="  基数排序   "></a><font color="#BD00BD">  <strong>基数排序</strong>   </font></h5><p><img src="/2019/11/25/eightsort2/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F.gif" alt="基数排序"></p>
 <p>待整理</p>
-<p>#####<font color="#BD00BD">  <strong>希尔排序(shell)</strong>   </font></p>
-<p><img src="/2019/11/25/eightsort2/eightsort2%5C%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.gif" alt="希尔排序"></p>
+<h5 id="希尔排序-shell"><a href="#希尔排序-shell" class="headerlink" title="  希尔排序(shell)   "></a><font color="#BD00BD">  <strong>希尔排序(shell)</strong>   </font></h5><p><img src="/2019/11/25/eightsort2/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.gif" alt="希尔排序"></p>
 <p>基本思想：希尔排序选取一个增量h，也就是把整个数组分成h份，对每一份进行排序。然后减少增量h，重复上述过程。一般我们选取的递增序列为：3*h+1   即1,4,13,40,…..</p>
 <p>实现：用一个while语句求出对应数组我们所需要的最大h,然后在用一个外层while循环控制h，每循环一次h=h/3;直至h自减至1;内层是直接插入排序算法，两个for循环嵌套，外层for循环用来控制i  - a.length的自增，内层for循环用来找到i需要插入的位置。</p>
 <p>时间复杂度：希尔排序最好情况是数组正序，此时外层for循环执行一次+最外层while循环&lt;n次；内层for循环不执行，O(n)，最坏情况是数组逆序，外层for循环+while&lt;n次，内层for每次都需要把n个数据向后移动一位O(n^2)，平均情况：  O(n^1.3)</p>
 <p>空间复杂度：需要一个temp用来临时交换数据，一个h来保存增量O(1)</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellSort</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = a.length;</span><br><span class="line">    <span class="keyword">int</span> h = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (h &lt; len / <span class="number">3</span>)</span><br><span class="line">        h = h * <span class="number">3</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (h &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = h; i &lt; len; ++i) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &gt;= h; j = j - h) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (a[j] &lt; a[j - h]) &#123;</span><br><span class="line">                        <span class="keyword">int</span> temp = a[j];</span><br><span class="line">                        a[j] = a[j - h];</span><br><span class="line">                        a[j - h] = temp;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        h = h / <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>#####<font color="#BD00BD">  <strong>堆排序</strong>   </font></p>
-<p><img src="/2019/11/25/eightsort2/eightsort2%5C%E5%A0%86%E6%8E%92%E5%BA%8F.gif" alt="堆排序"></p>
+<h5 id="堆排序"><a href="#堆排序" class="headerlink" title="  堆排序   "></a><font color="#BD00BD">  <strong>堆排序</strong>   </font></h5><p><img src="/2019/11/25/eightsort2/%E5%A0%86%E6%8E%92%E5%BA%8F.gif" alt="堆排序"></p>
 <p>待整理</p>
 ]]></content>
       <categories>
@@ -74,7 +146,7 @@
   <entry>
     <title>八大排序算法的基本思想与时间空间复杂度</title>
     <url>/2019/11/25/eightsort1/</url>
-    <content><![CDATA[<h5 id="排序算法的思想"><a href="#排序算法的思想" class="headerlink" title="  排序算法的思想   "></a><font color=" #BD00BD ">  <strong>排序算法的思想</strong>   </font></h5><p><strong>(1)冒泡排序</strong></p>
+    <content><![CDATA[<h5 id="排序算法的思想"><a href="#排序算法的思想" class="headerlink" title="排序算法的思想"></a><font color="#BD00BD"><strong>排序算法的思想</strong></font></h5><p><strong>(1)冒泡排序</strong></p>
 <p>是相邻元素之间的比较和交换，两重循环O(n2)；所以，如果两个相邻元素相等，是不会交换的。所以它是一种稳定的排序方法</p>
 <p><strong>(2)选择排序</strong></p>
 <p>每个元素都与第一个元素相比，产生交换，两重循环O(n2)；举个栗子，5 8 5 2 9，第一遍之后，2会与5交换，那么原序列中两个5的顺序就被破坏了。所以不是稳定的排序算法</p>
@@ -90,9 +162,9 @@
 <p>希尔排序是按照不同步长对元素进行插入排序，当刚开始元素很无序的时候，步长最大，所以插入排序的元素个数很少，速度很快；当元素基本有序了，步长很小，插入排序对于有序的序列效率很高。所以，希尔排序的时间复杂度会比o(n^2)好一些。由于多次插入排序，我们知道一次插入排序是稳定的，不会改变相同元素的相对顺序，但在不同的插入排序过程中，相同的元素可能在各自的插入排序中移动，最后其稳定性就会被打乱，所以shell排序是不稳定的。</p>
 <p><strong>(8)堆排序</strong></p>
 <p>我们知道堆的结构是节点i的孩子为2<em>i和2</em>i+1节点，大顶堆要求父节点大于等于其2个子节点，小顶堆要求父节点小于等于其2个子节点。在一个长为n的序列，堆排序的过程是从第n/2开始和其子节点共3个值选择最大(大顶堆)或者最小(小顶堆),这3个元素之间的选择当然不会破坏稳定性。但当为n/2-1, n/2-2, …1这些个父节点选择元素时，就会破坏稳定性。有可能第n/2个父节点交换把后面一个元素交换过去了，而第n/2-1个父节点把后面一个相同的元素没有交换，那么这2个相同的元素之间的稳定性就被破坏了。所以，堆排序不是稳定的排序算法。</p>
-<h5 id="稳定性"><a href="#稳定性" class="headerlink" title="  稳定性   "></a><font color=" #BD00BD ">  <strong>稳定性</strong>   </font></h5><p>归并排序、冒泡排序、插入排序、基数排序是稳定的</p>
+<h5 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a><font color="#BD00BD"><strong>稳定性</strong></font></h5><p>归并排序、冒泡排序、插入排序、基数排序是稳定的</p>
 <p>选择排序、快速排序、希尔排序、堆排序是不稳定的</p>
-<h5 id="时间与空间复杂度"><a href="#时间与空间复杂度" class="headerlink" title="  时间与空间复杂度   "></a><font color="#BD00BD">  <strong>时间与空间复杂度</strong>   </font></h5><p><img src="/2019/11/25/eightsort1/eightsort1%5CImage.png" alt></p>
+<h5 id="时间与空间复杂度"><a href="#时间与空间复杂度" class="headerlink" title="时间与空间复杂度"></a><font color="#BD00BD"><strong>时间与空间复杂度</strong></font></h5><p><img src="/2019/11/25/eightsort1/Image.png" alt></p>
 ]]></content>
       <categories>
         <category>算法</category>
