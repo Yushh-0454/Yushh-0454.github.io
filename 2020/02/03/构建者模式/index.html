@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="构建者模式," />
 
 
 
@@ -79,38 +79,16 @@
 
 
 
-<meta name="description" content="hexo的初级搭建还有部署到github page以及国内的coding上 Hexo简介Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。大家可以进入hexo官网进行详细查看，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。 Hexo搭建步骤 安装Git 安装Node.js 安">
-<meta name="keywords" content="hexo">
+<meta name="description" content="Builer模式的使用场景当遇到多个构造器参数时，要考虑使用构建器（Builder模式）。 举个例子，比如在项目中，我们需要新建一个Person类，假设该类有7个属性（现实中远不止这几个参数），其中有2个是必要的参数需要初始化，分别是id和name。 1、使用JavaBean的setter方法来设置对象属性最常见的写法应该是写成JavaBean。代码如下： 12345678910111213pub">
+<meta name="keywords" content="构建者模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo搭建教程（一）">
-<meta property="og:url" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;index.html">
+<meta property="og:title" content="构建者模式">
+<meta property="og:url" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2020&#x2F;02&#x2F;03&#x2F;%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="暗鲨blog">
-<meta property="og:description" content="hexo的初级搭建还有部署到github page以及国内的coding上 Hexo简介Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。大家可以进入hexo官网进行详细查看，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。 Hexo搭建步骤 安装Git 安装Node.js 安">
+<meta property="og:description" content="Builer模式的使用场景当遇到多个构造器参数时，要考虑使用构建器（Builder模式）。 举个例子，比如在项目中，我们需要新建一个Person类，假设该类有7个属性（现实中远不止这几个参数），其中有2个是必要的参数需要初始化，分别是id和name。 1、使用JavaBean的setter方法来设置对象属性最常见的写法应该是写成JavaBean。代码如下： 12345678910111213pub">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;git1.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;git2.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;git3.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;git4.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;git5.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;git6.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;git7.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;git8.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;nodeJs1.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;nodeJs2.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;nodeJs3.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;nodeJs4.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;nodeJs5.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;nodeJs6.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;hexo1.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;hexo2.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;hexo3.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;hexo4.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;hexo4.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;hexo5.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;hexo6.png">
-<meta property="og:updated_time" content="2019-11-25T15:34:17.148Z">
+<meta property="og:updated_time" content="2020-02-03T12:10:45.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;d2l5lw.coding-pages.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hexo1&#x2F;git1.png">
 
 
 
@@ -140,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://d2l5lw.coding-pages.com/2019/11/24/hexo1/"/>
+  <link rel="canonical" href="http://d2l5lw.coding-pages.com/2020/02/03/构建者模式/"/>
 
 
 
 
 
-  <title>hexo搭建教程（一） | 暗鲨blog</title>
+  <title>构建者模式 | 暗鲨blog</title>
   
 
 
@@ -317,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://d2l5lw.coding-pages.com/2019/11/24/hexo1/">
+    <link itemprop="mainEntityOfPage" href="http://d2l5lw.coding-pages.com/2020/02/03/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yushang">
@@ -334,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo搭建教程（一）</h1>
+          <h1 class="post-title" itemprop="name headline">构建者模式</h1>
         
 
         <div class="post-meta">
@@ -346,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建时间" itemprop="dateCreated datePublished" datetime="2019-11-24T20:09:40+08:00">
-                2019-11-24
+              <time title="创建时间" itemprop="dateCreated datePublished" datetime="2020-02-03T18:54:07+08:00">
+                2020-02-03
               </time>
             
 
@@ -369,8 +347,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index">
-                    <span itemprop="name">搭建博客</span>
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -406,41 +384,55 @@
       
 
       
-        <p>hexo的初级搭建还有部署到github page以及国内的coding上</p>
-<h4 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a><font color="#FF00FF">Hexo简介</font></h4><p>Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。<br>大家可以进入hexo官网进行详细查看，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。</p>
-<h4 id="Hexo搭建步骤"><a href="#Hexo搭建步骤" class="headerlink" title="Hexo搭建步骤"></a><font color="#FF00FF">Hexo搭建步骤</font></h4><ol>
-<li>安装Git</li>
-<li>安装Node.js</li>
-<li>安装Hexo</li>
-<li>GitHub创建个人仓库</li>
-<li>生成SSH添加到GitHub</li>
-<li>将hexo部署到GitHub</li>
-<li>发布文章</li>
+        <h5 id="Builer模式的使用场景"><a href="#Builer模式的使用场景" class="headerlink" title="Builer模式的使用场景"></a><font color="#BD00BD"><strong>Builer模式的使用场景</strong></font></h5><p>当遇到多个构造器参数时，要考虑使用构建器（Builder模式）。</p>
+<p>举个例子，比如在项目中，我们需要新建一个Person类，假设该类有7个属性（现实中远不止这几个参数），其中有2个是必要的参数需要初始化，分别是id和name。</p>
+<h5 id="1、使用JavaBean的setter方法来设置对象属性"><a href="#1、使用JavaBean的setter方法来设置对象属性" class="headerlink" title="1、使用JavaBean的setter方法来设置对象属性"></a><font color="#BD00BD"><strong>1、使用JavaBean的setter方法来设置对象属性</strong></font></h5><p>最常见的写法应该是写成JavaBean。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="comment">//必要参数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="comment">//可选参数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    <span class="keyword">private</span> String desc;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// set/get方法忽略</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种JavaBean的方式也是常见的构造对象并赋值的方式，这种方式的<strong>好处</strong>是：<strong>易于阅读，并且可以只对有用的成员变量赋值；</strong></p>
+<p>但它的<strong>缺点</strong>是：</p>
+<ol>
+<li><strong>成员变量不可以是 final 类型，失去了不可变对象的很多好处；</strong></li>
+<li><strong>对象状态不连续</strong>，你必须调用7次setter方法才能得到一个具备7个属性值得变量，在这期间用户可能拿到不完整状态的对象。如果有N个属性，岂不是要person.setXXX调用N次？此种方式不优雅。</li>
 </ol>
-<h4 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a><font color="#FF00FF">安装Git</font></h4><h5 id="下载git"><a href="#下载git" class="headerlink" title="下载git"></a><strong>下载git</strong></h5><p>方式一(官网下载)：<a href="https://git-scm.com/download/win(到此页面后，稍微等一下会有下载弹框)" target="_blank" rel="noopener">https://git-scm.com/download/win(到此页面后，稍微等一下会有下载弹框)</a></p>
-<p>方式二(csdn下载)：<a href="http://download.csdn.net/download/ainuser/9952103" target="_blank" rel="noopener">http://download.csdn.net/download/ainuser/9952103</a></p>
-<h5 id="安装git-按照图上选择即可"><a href="#安装git-按照图上选择即可" class="headerlink" title="安装git(按照图上选择即可)"></a>安装git(按照图上选择即可)</h5><p><img src="/2019/11/24/hexo1/git1.png" alt><br><img src="/2019/11/24/hexo1/git2.png" alt><br><img src="/2019/11/24/hexo1/git3.png" alt><br><img src="/2019/11/24/hexo1/git4.png" alt><br><img src="/2019/11/24/hexo1/git5.png" alt><br><img src="/2019/11/24/hexo1/git6.png" alt><br><img src="/2019/11/24/hexo1/git7.png" alt><br><img src="/2019/11/24/hexo1/git8.png" alt><br>至此，安装git步骤结束。</p>
-<h5 id="下载node-js"><a href="#下载node-js" class="headerlink" title="下载node.js"></a>下载node.js</h5><p>下载方式一：<a href="http://nodejs.org/download/" target="_blank" rel="noopener">http://nodejs.org/download/</a><br>下载方式二：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br>下载方式三：<a href="http://download.csdn.net/download/ainuser/9952074" target="_blank" rel="noopener">http://download.csdn.net/download/ainuser/9952074</a></p>
-<h5 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h5><p><img src="/2019/11/24/hexo1/nodeJs1.png" alt><br><img src="/2019/11/24/hexo1/nodeJs2.png" alt><br><img src="/2019/11/24/hexo1/nodeJs3.png" alt><br><img src="/2019/11/24/hexo1/nodeJs4.png" alt><br><img src="/2019/11/24/hexo1/nodeJs5.png" alt><br><img src="/2019/11/24/hexo1/nodeJs6.png" alt><br>至此，node.js安装步骤完毕。</p>
-<h5 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h5><p>首先在本地磁盘中建立一个Hexo文件夹用于存储本地文件(做本地文件保存以及测试使用)<br><img src="/2019/11/24/hexo1/hexo1.png" alt> </p>
-<p>然后在文件夹中右击打开git命令框<br><img src="/2019/11/24/hexo1/hexo2.png" alt> </p>
-<p>在git命令框中安装Hexo</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g hexo</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2019/11/24/hexo1/hexo3.png" alt> </p>
-<p>ps:如果npm命令未找到需要去环境变量中配置</p>
-<p>初始化</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo init</span></span><br></pre></td></tr></table></figure>
+<p>最重要的缺点是第二条：对象状态不连续。解释一下：这种方式是 先创建对象、后赋值，用户不知道什么时候拿到的对象是完整的，构建完成的。很有可能你只setter了一两个属性就返回了，一些必要的属性没有被赋值。</p>
+<h5 id="2、使用重叠构造器"><a href="#2、使用重叠构造器" class="headerlink" title="2、使用重叠构造器"></a><font color="#BD00BD"><strong>2、使用重叠构造器</strong></font></h5><p>在这种模式下，需要提供一个只有必要参数的构造器，第二个构造器有一个可选参数，第三个有两个可选参数，依此类推，最后一个构造器包含所有的可选参数。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="comment">//必要参数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="comment">//可选参数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    <span class="keyword">private</span> String desc;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(id, name, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(<span class="keyword">int</span> id, String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(id, name, age, <span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(<span class="keyword">int</span> id, String name, <span class="keyword">int</span> age, String sex)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(id, name, age, sex, <span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(<span class="keyword">int</span> id, String name, <span class="keyword">int</span> age, String sex, String phone)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(id, name, age, sex, phone, <span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(<span class="keyword">int</span> id, String name, <span class="keyword">int</span> age, String sex, String phone, String address)</span> 	  </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(id, name, age, sex, phone, address, <span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(<span class="keyword">int</span> id, String name, <span class="keyword">int</span> age, String sex, String phone, String address, String desc)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.sex = sex;</span><br><span class="line">        <span class="keyword">this</span>.phone = phone;</span><br><span class="line">        <span class="keyword">this</span>.address = address;</span><br><span class="line">        <span class="keyword">this</span>.desc = desc;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/11/24/hexo1/hexo4.png" alt> </p>
-<p><img src="/2019/11/24/hexo1/hexo4.png" alt> </p>
-<p>ps:如果hexo命令未找到也需要去环境变量中配置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">如果下载速度很慢可以配置npm镜像，我配置的镜像是</span><br><span class="line"><span class="meta">$</span><span class="bash"> npm config <span class="built_in">set</span> registry http://registry.cnpmjs.org</span></span><br><span class="line">// 下载hexo比淘宝镜像快一些</span><br><span class="line">// 可以通过以下命令查看是否配置成功</span><br><span class="line"><span class="meta">$</span><span class="bash"> npm congfig ls</span></span><br></pre></td></tr></table></figure>
+<p>从上面的代码可以看出，当你想要创建实例的时候，就利用参数列表最短的构造器，但该列表中包含了要设置的所有参数，其余都为默认值：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person person = <span class="keyword">new</span> Persion(<span class="number">1</span>, <span class="string">"张小毛"</span>);</span><br></pre></td></tr></table></figure>
 
-<p>启动服务(hexo server –&gt;hexo clean –&gt;hexo generate –&gt;hexo deploy)   </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 清理缓存文件</span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo clean</span></span><br><span class="line">// 生成静态文件</span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo generate</span></span><br><span class="line">// 启动服务</span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo server</span></span><br></pre></td></tr></table></figure>
+<p> 这个构造器调用，通常需要许多你本不想设置的参数，但还是不得不为它们传递值。</p>
+<p>这种方式的<strong>优点</strong>就是：<strong>简单</strong>！！！！（这是对开发者而言），但使用者在使用时，可得仔细了解你每个构造函数，否则一不小心填错顺序也不知道。而且如果有十几个属性，就歇菜了……（我也没见过有十几个参数的构造函数）</p>
+<p>所以<strong>缺点</strong>是：<strong>只适用于成员变量少的情况</strong>，太多了不容易理解、维护。</p>
+<p>简而言之：重叠构造器可行，但是当有许多参数的时候，创建使用代码会很难写，并且较难以阅读。</p>
+<h5 id="3、变种Builder模式"><a href="#3、变种Builder模式" class="headerlink" title="3、变种Builder模式"></a><font color="#BD00BD"><strong>3、变种Builder模式</strong></font></h5><p>对于上述分析的两种方法，都存在优点和缺点，为了解决上述两种构建方式的不足，伟大的程序员们创造出了变种 Builder模式。直接看代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="comment">//必要参数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="comment">//可选参数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line">    <span class="keyword">private</span> String desc;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Person</span><span class="params">(Builder builder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = builder.id;</span><br><span class="line">        <span class="keyword">this</span>.name = builder.name;</span><br><span class="line">        <span class="keyword">this</span>.age = builder.age;</span><br><span class="line">        <span class="keyword">this</span>.sex = builder.sex;</span><br><span class="line">        <span class="keyword">this</span>.phone = builder.phone;</span><br><span class="line">        <span class="keyword">this</span>.address = builder.address;</span><br><span class="line">        <span class="keyword">this</span>.desc = builder.desc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span> </span>&#123;</span><br><span class="line">        <span class="comment">//必要参数</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> id;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">        <span class="comment">//可选参数</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">        <span class="keyword">private</span> String sex;</span><br><span class="line">        <span class="keyword">private</span> String phone;</span><br><span class="line">        <span class="keyword">private</span> String address;</span><br><span class="line">        <span class="keyword">private</span> String desc;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Builder</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.id = id;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">age</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.age = val;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">sex</span><span class="params">(String val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.sex = val;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">phone</span><span class="params">(String val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.phone = val;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">address</span><span class="params">(String val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.address = val;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Builder <span class="title">desc</span><span class="params">(String val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.desc = val;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Person <span class="title">build</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Person(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 观察上述代码，可以看到变种Builder模式包括以下内容：</p>
+<ol>
+<li>在要构建类的内部，创建一个静态内部类Builder；</li>
+<li>静态内部类的属性要与构建类的属性一致；</li>
+<li>构建类的构造参数是静态内部类，使用静态内部类的变量为构建类逐一赋值；</li>
+<li>静态内部类提供参数的setter方法，并且返回值是当前Builder对象；</li>
+<li>最终提供一个build方法new出来一个构建类的对象，参数是当前Builder对象；</li>
+</ol>
+<p>调用代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person person = <span class="keyword">new</span> Person.Builder(<span class="number">1</span>, <span class="string">"张小毛"</span>)</span><br><span class="line">                .age(<span class="number">22</span>).sex(<span class="string">"男"</span>).desc(<span class="string">"使用builder模式"</span>).build();</span><br><span class="line">        System.out.println(person.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/11/24/hexo1/hexo5.png" alt><br><img src="/2019/11/24/hexo1/hexo6.png" alt> </p>
-<p>浏览器输入<a href="http://localhost:4000,按理来说应该会出现本地访问页面" target="_blank" rel="noopener">http://localhost:4000,按理来说应该会出现本地访问页面</a></p>
+<p><strong>对变种Builer模式的总结：</strong></p>
+<ol>
+<li><strong>变种Builder模式目的在于：减少对象创建过程中引入的多个构造函数、可选参数以及多个setter过度使用导致的不必要的复杂性。</strong></li>
+<li><strong>优点就是：看起来很整齐；先赋值，后创建对象，最终调用build()方法才创建了构建类的对象，保证了状态的完整性。</strong></li>
+<li><strong>缺点嘛，就是需要额外写的代码多了点。</strong></li>
+</ol>
+<h5 id="4、小结"><a href="#4、小结" class="headerlink" title="4、小结"></a><font color="#BD00BD"><strong>4、小结</strong></font></h5><p>变种Builer模式相比于重叠构造器模式和JavaBeans模式，Builder模式实现的对象更利于使用。</p>
+<p>对Builer模式使用方法的总结：</p>
+<ol>
+<li>外部类的构造函数私有，且参数为静态内部类；</li>
+<li>静态内部类拥有外部类相同的属；</li>
+<li>为每一个属性，写一个方法，返回的是Builer；</li>
+<li>最后一个方法是build方法，用于构建一个外部类</li>
+</ol>
 
       
     </div>
@@ -468,7 +460,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/%E6%9E%84%E5%BB%BA%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="tag"># 构建者模式</a>
           
         </div>
       
@@ -481,15 +473,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/12/15/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/" rel="next" title="装饰者模式">
+                <i class="fa fa-chevron-left"></i> 装饰者模式
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/25/eightsort1/" rel="prev" title="八大排序算法的基本思想与时间空间复杂度">
-                八大排序算法的基本思想与时间空间复杂度 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo简介"><span class="nav-number">1.</span> <span class="nav-text">Hexo简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo搭建步骤"><span class="nav-number">2.</span> <span class="nav-text">Hexo搭建步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Git"><span class="nav-number">3.</span> <span class="nav-text">安装Git</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#下载git"><span class="nav-number">3.1.</span> <span class="nav-text">下载git</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装git-按照图上选择即可"><span class="nav-number">3.2.</span> <span class="nav-text">安装git(按照图上选择即可)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下载node-js"><span class="nav-number">3.3.</span> <span class="nav-text">下载node.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装node-js"><span class="nav-number">3.4.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装hexo"><span class="nav-number">3.5.</span> <span class="nav-text">安装hexo</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Builer模式的使用场景"><span class="nav-number">1.</span> <span class="nav-text">Builer模式的使用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1、使用JavaBean的setter方法来设置对象属性"><span class="nav-number">2.</span> <span class="nav-text">1、使用JavaBean的setter方法来设置对象属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、使用重叠构造器"><span class="nav-number">3.</span> <span class="nav-text">2、使用重叠构造器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、变种Builder模式"><span class="nav-number">4.</span> <span class="nav-text">3、变种Builder模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、小结"><span class="nav-number">5.</span> <span class="nav-text">4、小结</span></a></li></ol></div>
             
 
           </div>
